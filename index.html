@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Invited to Our Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hearts-bg"></div>
+            <div class="hero-content">
+                <div class="fade-in">
+                    <h1 class="main-title">We're Getting Married!</h1>
+                    <div class="names">
+                        <span class="bride">Sarah</span>
+                        <span class="ampersand">&</span>
+                        <span class="groom">James</span>
+                    </div>
+                    <p class="tagline">Join us as we say "I do"</p>
+                    <div class="divider"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Date & Venue Section -->
+        <section class="event-details">
+            <div class="details-content">
+                <h2 class="section-title">Save The Date</h2>
+                <div class="date-box">
+                    <p class="date">Saturday, June 15th, 2024</p>
+                    <p class="time">4:00 PM</p>
+                </div>
+                <div class="venue">
+                    <h3>Ceremony & Reception</h3>
+                    <p class="venue-name">The Garden Estate</p>
+                    <p class="address">123 Rose Garden Lane</p>
+                    <p class="address">Romantic Valley, CA 90210</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="our-story">
+            <div class="story-content">
+                <h2 class="section-title">Our Story</h2>
+                <div class="timeline">
+                    <div class="story-item">
+                        <div class="story-icon">💕</div>
+                        <h3>How We Met</h3>
+                        <p>Our paths crossed on a beautiful spring day at a coffee shop. What started as a casual conversation turned into hours of laughter and connection.</p>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-icon">❤️</div>
+                        <h3>The First Date</h3>
+                        <p>Our first official date was a sunset picnic by the lake. We talked, laughed, and watched the stars appear one by one in the evening sky.</p>
+                    </div>
+                    <div class="story-item">
+                        <div class="story-icon">💍</div>
+                        <h3>The Proposal</h3>
+                        <p>On a trip to Paris, at the top of the Eiffel Tower, James got down on one knee and asked Sarah to be his forever. She said YES!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schedule Section -->
+        <section class="schedule">
+            <div class="schedule-content">
+                <h2 class="section-title">Wedding Schedule</h2>
+                <div class="schedule-timeline">
+                    <div class="schedule-item">
+                        <div class="time-marker">4:00 PM</div>
+                        <div class="schedule-details">
+                            <h3>Ceremony</h3>
+                            <p>Join us as we exchange our vows in the garden</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="time-marker">5:00 PM</div>
+                        <div class="schedule-details">
+                            <h3>Cocktail Hour</h3>
+                            <p>Celebrate with drinks and hors d'oeuvres</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="time-marker">6:30 PM</div>
+                        <div class="schedule-details">
+                            <h3>Reception & Dinner</h3>
+                            <p>Dinner, dancing, and unforgettable memories</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="time-marker">10:00 PM</div>
+                        <div class="schedule-details">
+                            <h3>Grand Finale</h3>
+                            <p>Sparkler send-off under the stars</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="rsvp">
+            <div class="rsvp-content">
+                <h2 class="section-title">RSVP</h2>
+                <p class="rsvp-subtitle">We can't wait to celebrate with you!</p>
+                <form class="rsvp-form" id="rsvpForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="attendance" name="attendance" required>
+                            <option value="">Will you attend?</option>
+                            <option value="yes">Joyfully Accepts</option>
+                            <option value="no">Regretfully Declines</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="guests" name="guests" min="1" max="5" placeholder="Number of Guests">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="4" placeholder="Special Message or Dietary Requirements"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send RSVP</button>
+                </form>
+                <p class="rsvp-deadline">Please respond by May 1st, 2024</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-text">We're so excited to share our special day with you!</p>
+                <div class="heart-divider">♥</div>
+                <p class="footer-names">Sarah & James</p>
+                <p class="footer-date">June 15, 2024</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
