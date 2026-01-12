@@ -75,8 +75,15 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Create floating hearts animation
+    // Create floating hearts animation with limit
+    let activeHearts = 0;
+    const maxHearts = 5;
+
     function createFloatingHeart() {
+        if (activeHearts >= maxHearts) {
+            return;
+        }
+
         const heart = document.createElement('div');
         heart.innerHTML = '♥';
         heart.style.position = 'fixed';
@@ -89,10 +96,12 @@ document.addEventListener('DOMContentLoaded', function() {
         heart.style.animation = `floatUp ${Math.random() * 3 + 4}s linear`;
         
         document.body.appendChild(heart);
+        activeHearts++;
 
         // Remove heart after animation
         setTimeout(() => {
             heart.remove();
+            activeHearts--;
         }, 7000);
     }
 
@@ -133,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Countdown timer (optional feature)
     function updateCountdown() {
-        const weddingDate = new Date('2024-06-15T16:00:00').getTime();
+        const weddingDate = new Date('2026-06-15T16:00:00').getTime();
         const now = new Date().getTime();
         const distance = weddingDate - now;
 
