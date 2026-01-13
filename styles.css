@@ -13,6 +13,10 @@
     --text-light: #ffffff;
     --gold: #d4af37;
     --rose: #ff6b9d;
+    --emerald: #50c878;
+    --blush: #ffc1cc;
+    --ivory: #fffff0;
+    --sage: #9caf88;
 }
 
 /* Accessibility - visually hidden labels */
@@ -33,12 +37,137 @@ body {
     color: var(--text-dark);
     line-height: 1.6;
     overflow-x: hidden;
-    background: linear-gradient(135deg, #ffeef8 0%, #fff5f7 100%);
+    background: linear-gradient(135deg, #ffeef8 0%, #fff5f7 50%, #f0f8ff 100%);
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(255, 182, 193, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .container {
     max-width: 100%;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Islamic Calligraphy Header */
+.bismillah-header {
+    background: linear-gradient(135deg, var(--ivory) 0%, var(--blush) 30%, #ffe5b4 50%, var(--blush) 70%, var(--ivory) 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+    border-bottom: 4px solid var(--gold);
+    border-top: 4px solid var(--gold);
+    box-shadow: 
+        0 4px 15px rgba(212, 175, 55, 0.3),
+        inset 0 2px 10px rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.bismillah-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.05) 10px, rgba(212, 175, 55, 0.05) 20px),
+        repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255, 182, 193, 0.05) 10px, rgba(255, 182, 193, 0.05) 20px);
+    pointer-events: none;
+}
+
+.bismillah-header::after {
+    content: '✦';
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    color: var(--gold);
+    opacity: 0.3;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.6; }
+}
+
+.bismillah-text {
+    font-family: 'Scheherazade New', 'Amiri', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+.bismillah-translation {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-style: italic;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+.islamic-blessing {
+    font-family: 'Scheherazade New', 'Amiri', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    margin: 1.5rem 0 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    font-weight: 700;
+}
+
+.blessing-translation {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-style: italic;
+    letter-spacing: 1.5px;
+    margin-bottom: 1rem;
+}
+
+.islamic-verse {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(255, 255, 240, 0.3) 100%);
+    border-radius: 15px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.arabic-text {
+    font-family: 'Scheherazade New', 'Amiri', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    font-weight: 700;
+}
+
+.verse-translation {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-style: italic;
+    line-height: 1.6;
 }
 
 /* Hero Section */
@@ -48,8 +177,66 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    background: linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%);
+    background: linear-gradient(135deg, #d4af37 0%, #ffc3a0 30%, #ffafbd 70%, #c97d7d 100%);
     overflow: hidden;
+}
+
+.floral-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%223%22%20fill%3D%22rgba(255%2C255%2C255%2C0.2)%22%2F%3E%3Cpath%20d%3D%22M100%2C85%20Q110%2C90%20105%2C100%20Q110%2C110%20100%2C115%20Q90%2C110%2095%2C100%20Q90%2C90%20100%2C85%22%20fill%3D%22rgba(255%2C255%2C255%2C0.15)%22%2F%3E%3C%2Fsvg%3E');
+    background-size: 150px 150px;
+    opacity: 0.3;
+    animation: floralMove 40s linear infinite;
+}
+
+@keyframes floralMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 150px 150px; }
+}
+
+/* Mandala Decorations - Inspired by Indian wedding templates */
+.mandala-decoration {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    opacity: 0.25;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2280%22%20fill%3D%22none%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%222%22%20opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2260%22%20fill%3D%22none%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%221.5%22%20opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M100%2C20%20L108%2C92%20L100%2C20%20L92%2C92%20M180%2C100%20L108%2C108%20L180%2C100%20L108%2C92%20M100%2C180%20L92%2C108%20L100%2C180%20L108%2C108%20M20%2C100%20L92%2C92%20L20%2C100%20L92%2C108%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20opacity%3D%220.4%22%2F%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%2240%22%20r%3D%228%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22100%22%20r%3D%228%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22160%22%20r%3D%228%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2240%22%20cy%3D%22100%22%20r%3D%228%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.6%22%2F%3E%3C%2Fsvg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    animation: rotateDecoration 60s linear infinite;
+}
+
+.mandala-decoration.top-left {
+    top: -50px;
+    left: -50px;
+}
+
+.mandala-decoration.top-right {
+    top: -50px;
+    right: -50px;
+    animation-direction: reverse;
+}
+
+.mandala-decoration.bottom-left {
+    bottom: -50px;
+    left: -50px;
+    animation-direction: reverse;
+}
+
+.mandala-decoration.bottom-right {
+    bottom: -50px;
+    right: -50px;
+}
+
+@keyframes rotateDecoration {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .hearts-bg {
@@ -176,22 +363,97 @@ body {
 /* Event Details Section */
 .event-details {
     padding: 6rem 2rem;
-    background: var(--text-light);
+    background: linear-gradient(135deg, var(--ivory) 0%, var(--text-light) 50%, var(--blush) 100%);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.event-details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 20%, rgba(80, 200, 120, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.floral-corner {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    opacity: 0.15;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Cpath%20d%3D%22M50%2C10%20Q60%2C20%2050%2C30%20Q40%2C20%2050%2C10%20M30%2C50%20Q20%2C60%2010%2C50%20Q20%2C40%2030%2C50%20M70%2C50%20Q80%2C60%2090%2C50%20Q80%2C40%2070%2C50%20M50%2C70%20Q60%2C80%2050%2C90%20Q40%2C80%2050%2C70%22%20fill%3D%22%23d4af37%22%20opacity%3D%220.4%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%228%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.3%22%2F%3E%3C%2Fsvg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.floral-corner.top-left {
+    top: 20px;
+    left: 20px;
+}
+
+.floral-corner.top-right {
+    top: 20px;
+    right: 20px;
+    transform: scaleX(-1);
+}
+
+.floral-corner.bottom-left {
+    bottom: 20px;
+    left: 20px;
+    transform: scaleY(-1);
+}
+
+.floral-corner.bottom-right {
+    bottom: 20px;
+    right: 20px;
+    transform: scale(-1);
+}
+
+/* Paisley Patterns - Mehndi inspired */
+.paisley-pattern {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    opacity: 0.12;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20150%22%3E%3Cpath%20d%3D%22M50%2C10%20Q70%2C30%2070%2C60%20Q70%2C90%2050%2C130%20Q30%2C90%2030%2C60%20Q30%2C30%2050%2C10%20Z%22%20fill%3D%22none%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%222%22%2F%3E%3Cpath%20d%3D%22M50%2C25%20Q60%2C40%2060%2C60%20Q60%2C80%2050%2C110%20Q40%2C80%2040%2C60%20Q40%2C40%2050%2C25%20Z%22%20fill%3D%22%2350c878%22%20opacity%3D%220.3%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2260%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%221%22%2F%3E%3C%2Fsvg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.paisley-pattern.left {
+    left: 10px;
+}
+
+.paisley-pattern.right {
+    right: 10px;
+    transform: translateY(-50%) scaleX(-1);
 }
 
 .details-content {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .section-title {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
-    color: var(--accent-color);
+    color: var(--gold);
     margin-bottom: 3rem;
     position: relative;
     display: inline-block;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .section-title::after {
@@ -201,29 +463,56 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 60%;
-    height: 2px;
-    background: var(--primary-color);
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    box-shadow: 0 2px 4px rgba(212, 175, 55, 0.3);
 }
 
 .date-box {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, #fff 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 240, 0.8) 0%, rgba(255, 193, 204, 0.2) 100%);
     padding: 3rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
     margin-bottom: 3rem;
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.date-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .date {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
-    color: var(--accent-color);
+    color: var(--gold);
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .time {
     font-size: 1.5rem;
     color: var(--text-dark);
     font-weight: 300;
+    position: relative;
+    z-index: 1;
 }
 
 .venue {
@@ -233,7 +522,7 @@ body {
 .venue h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
-    color: var(--accent-color);
+    color: var(--gold);
     margin-bottom: 1rem;
 }
 
@@ -253,8 +542,45 @@ body {
 /* Our Story Section */
 .our-story {
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, #fff5f7 0%, #ffeef8 100%);
+    background: linear-gradient(135deg, #fff5f7 0%, #ffeef8 50%, var(--ivory) 100%);
     text-align: center;
+    position: relative;
+}
+
+.our-story::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 30% 40%, rgba(156, 175, 136, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(255, 193, 204, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Lotus Decorations - Traditional Indian symbol */
+.lotus-decoration {
+    position: absolute;
+    width: 180px;
+    height: 100px;
+    opacity: 0.2;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20180%20100%22%3E%3Cpath%20d%3D%22M90%2C10%20Q95%2C30%2090%2C50%20Q85%2C30%2090%2C10%20Z%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.6%22%2F%3E%3Cpath%20d%3D%22M70%2C20%20Q75%2C40%2070%2C60%20Q65%2C40%2070%2C20%20Z%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M110%2C20%20Q115%2C40%20110%2C60%20Q105%2C40%20110%2C20%20Z%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M50%2C30%20Q55%2C50%2050%2C70%20Q45%2C50%2050%2C30%20Z%22%20fill%3D%22%2350c878%22%20opacity%3D%220.4%22%2F%3E%3Cpath%20d%3D%22M130%2C30%20Q135%2C50%20130%2C70%20Q125%2C50%20130%2C30%20Z%22%20fill%3D%22%2350c878%22%20opacity%3D%220.4%22%2F%3E%3Cellipse%20cx%3D%2290%22%20cy%3D%2270%22%20rx%3D%2260%22%20ry%3D%2215%22%20fill%3D%22%23d4af37%22%20opacity%3D%220.3%22%2F%3E%3C%2Fsvg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.lotus-decoration.top {
+    top: 20px;
+}
+
+.lotus-decoration.bottom {
+    bottom: 20px;
+    transform: translateX(-50%) scaleY(-1);
 }
 
 .story-content {
@@ -270,16 +596,48 @@ body {
 }
 
 .story-item {
-    background: var(--text-light);
+    background: linear-gradient(135deg, var(--text-light) 0%, rgba(255, 255, 240, 0.6) 100%);
     padding: 3rem 2rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+    background-image: 
+        linear-gradient(135deg, var(--text-light) 0%, rgba(255, 255, 240, 0.6) 100%),
+        linear-gradient(90deg, var(--gold), var(--emerald), var(--rose), var(--gold));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.story-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--rose), var(--emerald), var(--gold));
+}
+
+.story-item::after {
+    content: '❋';
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.2;
 }
 
 .story-item:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .story-icon {
@@ -296,7 +654,7 @@ body {
 .story-item h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
-    color: var(--accent-color);
+    color: var(--gold);
     margin-bottom: 1rem;
 }
 
@@ -309,8 +667,22 @@ body {
 /* Schedule Section */
 .schedule {
     padding: 6rem 2rem;
-    background: var(--text-light);
+    background: linear-gradient(135deg, var(--text-light) 0%, var(--ivory) 50%, var(--blush) 100%);
     text-align: center;
+    position: relative;
+}
+
+.schedule::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 15% 30%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 85% 70%, rgba(255, 107, 157, 0.04) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .schedule-content {
@@ -343,32 +715,36 @@ body {
 }
 
 .time-marker {
-    background: var(--accent-color);
+    background: linear-gradient(135deg, var(--gold) 0%, #e6c34d 100%);
     color: var(--text-light);
     padding: 1rem 2rem;
     border-radius: 30px;
     font-weight: 600;
     font-size: 1.2rem;
     min-width: 120px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+        0 5px 15px rgba(212, 175, 55, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
     position: relative;
     z-index: 2;
 }
 
 .schedule-details {
-    background: var(--secondary-color);
+    background: linear-gradient(135deg, rgba(255, 255, 240, 0.7) 0%, rgba(255, 193, 204, 0.3) 100%);
     padding: 2rem;
     border-radius: 15px;
     text-align: left;
     margin-left: 2rem;
     flex: 1;
     max-width: 400px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .schedule-details h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
-    color: var(--accent-color);
+    color: var(--gold);
     margin-bottom: 0.5rem;
 }
 
@@ -380,8 +756,23 @@ body {
 /* RSVP Section */
 .rsvp {
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, #ffc3a0 0%, #ffafbd 100%);
+    background: linear-gradient(135deg, #d4af37 0%, #ffc3a0 30%, #ffafbd 70%, #c97d7d 100%);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.rsvp::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .rsvp-content {
@@ -408,7 +799,10 @@ body {
     background: var(--text-light);
     padding: 3rem;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 1);
+    border: 2px solid rgba(212, 175, 55, 0.2);
 }
 
 .form-group {
@@ -435,7 +829,7 @@ body {
 }
 
 .submit-btn {
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--rose) 100%);
+    background: linear-gradient(135deg, var(--gold) 0%, #e6c34d 50%, var(--rose) 100%);
     color: var(--text-light);
     padding: 1rem 3rem;
     border: none;
@@ -445,11 +839,16 @@ body {
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-top: 1rem;
+    box-shadow: 
+        0 5px 15px rgba(212, 175, 55, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .submit-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        0 10px 25px rgba(212, 175, 55, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .rsvp-deadline {
@@ -461,15 +860,57 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--text-dark);
+    background: linear-gradient(135deg, #3a3a3a 0%, var(--text-dark) 50%, #2a2a2a 100%);
     color: var(--text-light);
     padding: 4rem 2rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 30% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 50%, rgba(255, 107, 157, 0.05) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .footer-content {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-blessing {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.arabic-blessing {
+    font-family: 'Scheherazade New', 'Amiri', serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    line-height: 1.8;
+    font-weight: 700;
+}
+
+.blessing-translation-footer {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    line-height: 1.5;
 }
 
 .footer-text {
@@ -504,6 +945,38 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .bismillah-text {
+        font-size: 2rem;
+    }
+    
+    .islamic-blessing {
+        font-size: 2.5rem;
+    }
+    
+    .arabic-text {
+        font-size: 1.4rem;
+    }
+    
+    .floral-corner {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .mandala-decoration {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .paisley-pattern {
+        width: 80px;
+        height: 120px;
+    }
+    
+    .lotus-decoration {
+        width: 140px;
+        height: 80px;
+    }
+    
     .main-title {
         font-size: 2rem;
     }
@@ -557,9 +1030,53 @@ body {
     .footer-names {
         font-size: 2.5rem;
     }
+    
+    .arabic-blessing {
+        font-size: 1.3rem;
+    }
 }
 
 @media (max-width: 480px) {
+    .bismillah-text {
+        font-size: 1.5rem;
+    }
+    
+    .bismillah-header {
+        padding: 1.5rem 1rem;
+    }
+    
+    .islamic-blessing {
+        font-size: 2rem;
+    }
+    
+    .arabic-text {
+        font-size: 1.2rem;
+    }
+    
+    .verse-translation {
+        font-size: 0.9rem;
+    }
+    
+    .floral-corner {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .mandala-decoration {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .paisley-pattern {
+        width: 60px;
+        height: 90px;
+    }
+    
+    .lotus-decoration {
+        width: 100px;
+        height: 60px;
+    }
+    
     .names {
         font-size: 3rem;
         flex-direction: column;
@@ -572,5 +1089,13 @@ body {
 
     .section-title {
         font-size: 2rem;
+    }
+    
+    .arabic-blessing {
+        font-size: 1.1rem;
+    }
+    
+    .blessing-translation-footer {
+        font-size: 0.85rem;
     }
 }
