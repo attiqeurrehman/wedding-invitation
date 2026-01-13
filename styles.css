@@ -64,11 +64,14 @@ body::before {
 
 /* Islamic Calligraphy Header */
 .bismillah-header {
-    background: linear-gradient(135deg, var(--ivory) 0%, var(--blush) 50%, var(--ivory) 100%);
-    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, var(--ivory) 0%, var(--blush) 30%, #ffe5b4 50%, var(--blush) 70%, var(--ivory) 100%);
+    padding: 3rem 2rem;
     text-align: center;
-    border-bottom: 3px solid var(--gold);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+    border-bottom: 4px solid var(--gold);
+    border-top: 4px solid var(--gold);
+    box-shadow: 
+        0 4px 15px rgba(212, 175, 55, 0.3),
+        inset 0 2px 10px rgba(255, 255, 255, 0.5);
     position: relative;
     overflow: hidden;
 }
@@ -81,9 +84,23 @@ body::before {
     right: 0;
     bottom: 0;
     background-image: 
-        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.03) 10px, rgba(212, 175, 55, 0.03) 20px),
-        repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255, 182, 193, 0.03) 10px, rgba(255, 182, 193, 0.03) 20px);
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.05) 10px, rgba(212, 175, 55, 0.05) 20px),
+        repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255, 182, 193, 0.05) 10px, rgba(255, 182, 193, 0.05) 20px);
     pointer-events: none;
+}
+
+.bismillah-header::after {
+    content: '✦';
+    position: absolute;
+    font-size: 2rem;
+    color: var(--gold);
+    opacity: 0.3;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.6; }
 }
 
 .bismillah-text {
@@ -178,6 +195,46 @@ body::before {
 @keyframes floralMove {
     0% { background-position: 0 0; }
     100% { background-position: 150px 150px; }
+}
+
+/* Mandala Decorations - Inspired by Indian wedding templates */
+.mandala-decoration {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    opacity: 0.25;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2280%22%20fill%3D%22none%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%222%22%20opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2260%22%20fill%3D%22none%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%221.5%22%20opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M100%2C20%20L108%2C92%20L100%2C20%20L92%2C92%20M180%2C100%20L108%2C108%20L180%2C100%20L108%2C92%20M100%2C180%20L92%2C108%20L100%2C180%20L108%2C108%20M20%2C100%20L92%2C92%20L20%2C100%20L92%2C108%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20opacity%3D%220.4%22%2F%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%2240%22%20r%3D%228%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22160%22%20cy%3D%22100%22%20r%3D%228%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22160%22%20r%3D%228%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.6%22%2F%3E%3Ccircle%20cx%3D%2240%22%20cy%3D%22100%22%20r%3D%228%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.6%22%2F%3E%3C%2Fsvg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    animation: rotateDecoration 60s linear infinite;
+}
+
+.mandala-decoration.top-left {
+    top: -50px;
+    left: -50px;
+}
+
+.mandala-decoration.top-right {
+    top: -50px;
+    right: -50px;
+    animation-direction: reverse;
+}
+
+.mandala-decoration.bottom-left {
+    bottom: -50px;
+    left: -50px;
+    animation-direction: reverse;
+}
+
+.mandala-decoration.bottom-right {
+    bottom: -50px;
+    right: -50px;
+}
+
+@keyframes rotateDecoration {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .hearts-bg {
@@ -357,6 +414,29 @@ body::before {
     transform: scale(-1);
 }
 
+/* Paisley Patterns - Mehndi inspired */
+.paisley-pattern {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    opacity: 0.12;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20150%22%3E%3Cpath%20d%3D%22M50%2C10%20Q70%2C30%2070%2C60%20Q70%2C90%2050%2C130%20Q30%2C90%2030%2C60%20Q30%2C30%2050%2C10%20Z%22%20fill%3D%22none%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%222%22%2F%3E%3Cpath%20d%3D%22M50%2C25%20Q60%2C40%2060%2C60%20Q60%2C80%2050%2C110%20Q40%2C80%2040%2C60%20Q40%2C40%2050%2C25%20Z%22%20fill%3D%22%2350c878%22%20opacity%3D%220.3%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2260%22%20r%3D%2210%22%20fill%3D%22none%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%221%22%2F%3E%3C%2Fsvg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.paisley-pattern.left {
+    left: 10px;
+}
+
+.paisley-pattern.right {
+    right: 10px;
+    transform: translateY(-50%) scaleX(-1);
+}
+
 .details-content {
     max-width: 800px;
     margin: 0 auto;
@@ -478,6 +558,29 @@ body::before {
     pointer-events: none;
 }
 
+/* Lotus Decorations - Traditional Indian symbol */
+.lotus-decoration {
+    position: absolute;
+    width: 180px;
+    height: 100px;
+    opacity: 0.2;
+    background-image: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20180%20100%22%3E%3Cpath%20d%3D%22M90%2C10%20Q95%2C30%2090%2C50%20Q85%2C30%2090%2C10%20Z%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.6%22%2F%3E%3Cpath%20d%3D%22M70%2C20%20Q75%2C40%2070%2C60%20Q65%2C40%2070%2C20%20Z%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M110%2C20%20Q115%2C40%20110%2C60%20Q105%2C40%20110%2C20%20Z%22%20fill%3D%22%23ff6b9d%22%20opacity%3D%220.5%22%2F%3E%3Cpath%20d%3D%22M50%2C30%20Q55%2C50%2050%2C70%20Q45%2C50%2050%2C30%20Z%22%20fill%3D%22%2350c878%22%20opacity%3D%220.4%22%2F%3E%3Cpath%20d%3D%22M130%2C30%20Q135%2C50%20130%2C70%20Q125%2C50%20130%2C30%20Z%22%20fill%3D%22%2350c878%22%20opacity%3D%220.4%22%2F%3E%3Cellipse%20cx%3D%2290%22%20cy%3D%2270%22%20rx%3D%2260%22%20ry%3D%2215%22%20fill%3D%22%23d4af37%22%20opacity%3D%220.3%22%2F%3E%3C%2Fsvg%3E');
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.lotus-decoration.top {
+    top: 20px;
+}
+
+.lotus-decoration.bottom {
+    bottom: 20px;
+    transform: translateX(-50%) scaleY(-1);
+}
+
 .story-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -498,7 +601,12 @@ body::before {
         0 10px 30px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(212, 175, 55, 0.15);
+    border: 2px solid transparent;
+    background-image: 
+        linear-gradient(135deg, var(--text-light) 0%, rgba(255, 255, 240, 0.6) 100%),
+        linear-gradient(90deg, var(--gold), var(--emerald), var(--rose), var(--gold));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
     position: relative;
     overflow: hidden;
 }
@@ -510,7 +618,17 @@ body::before {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--rose), var(--gold));
+    background: linear-gradient(90deg, var(--gold), var(--rose), var(--emerald), var(--gold));
+}
+
+.story-item::after {
+    content: '❋';
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: var(--gold);
+    opacity: 0.2;
 }
 
 .story-item:hover {
@@ -842,6 +960,21 @@ body::before {
         height: 100px;
     }
     
+    .mandala-decoration {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .paisley-pattern {
+        width: 80px;
+        height: 120px;
+    }
+    
+    .lotus-decoration {
+        width: 140px;
+        height: 80px;
+    }
+    
     .main-title {
         font-size: 2rem;
     }
@@ -925,6 +1058,21 @@ body::before {
     .floral-corner {
         width: 80px;
         height: 80px;
+    }
+    
+    .mandala-decoration {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .paisley-pattern {
+        width: 60px;
+        height: 90px;
+    }
+    
+    .lotus-decoration {
+        width: 100px;
+        height: 60px;
     }
     
     .names {
